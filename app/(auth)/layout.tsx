@@ -1,16 +1,24 @@
-import { Sidebar } from "lucide-react";
+import Image from "next/image";
 
 export default function RootLayout({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
-  const loggedIn = { firstName: 'Jeremy', lastName: 'Sanjaya' };
-    return (
-      <main className="flex h-screen w-full font-inter">
-        <Sidebar user={loggedIn} />
-            {children}
-      </main>
-    );
-  }
-  
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <main className="flex min-h-screen w-full justify-between font-inter">
+      {children}
+      <div className="auth-asset">
+        <div>
+          <Image 
+            src="/icons/auth-image.svg"
+            alt="Auth image"
+            width={500}
+            height={500}
+            className="rounded-l-xl object-contain"
+          />
+        </div>
+      </div>
+    </main>
+  );
+}
